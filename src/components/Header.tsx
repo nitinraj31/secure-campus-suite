@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Shield } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -38,9 +39,11 @@ const Header = () => {
             <Button variant="ghost" size="sm" className="hidden sm:flex">
               Sign In
             </Button>
-            <Button size="sm" className="bg-gradient-primary hover:shadow-glow transition-all duration-300">
-              Get Started
-            </Button>
+            <Link to="/dashboard">
+              <Button size="sm" className="bg-gradient-primary hover:shadow-glow transition-all duration-300">
+                Dashboard
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
