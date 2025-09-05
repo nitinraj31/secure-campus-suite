@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -6,21 +6,26 @@ import { Badge } from "@/components/ui/badge";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Building2, Users, Bed, CheckCircle, XCircle, Plus, Search, Filter } from "lucide-react";
 import { Link } from "react-router-dom";
-
-// Sample data
-const rooms = [
-  { id: "A-101", block: "A", floor: 1, capacity: 2, occupied: 2, type: "Double", status: "Occupied", students: ["John Doe", "Mike Wilson"] },
-  { id: "A-102", block: "A", floor: 1, capacity: 2, occupied: 1, type: "Double", status: "Partially Occupied", students: ["Jane Smith"] },
-  { id: "A-103", block: "A", floor: 1, capacity: 2, occupied: 0, type: "Double", status: "Available", students: [] },
-  { id: "B-201", block: "B", floor: 2, capacity: 1, occupied: 1, type: "Single", status: "Occupied", students: ["Sarah Connor"] },
-  { id: "B-202", block: "B", floor: 2, capacity: 1, occupied: 0, type: "Single", status: "Available", students: [] },
-  { id: "C-301", block: "C", floor: 3, capacity: 4, occupied: 3, type: "Quad", status: "Partially Occupied", students: ["Alex Brown", "Chris Davis", "Emma Wilson"] },
-];
+import api, { apiRequest } from "@/lib/api";
 
 const RoomManagement = () => {
+  const [rooms, setRooms] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [blockFilter, setBlockFilter] = useState("all");
   const [statusFilter, setStatusFilter] = useState("all");
+
+  useEffect(() => {
+    fetchRooms();
+  }, []);
+
+  const fetchRooms = async () => {
+    try {
+      const data = await apiRequest(api.rooms.getAll);
+      setRooms(data);
+    } catch (error) {
+      console.error("Failed to fetch rooms:", error);
+    }
+  };
 
   const filteredRooms = rooms.filter(room => {
     const matchesSearch = room.id.toLowerCase().includes(searchTerm.toLowerCase());
