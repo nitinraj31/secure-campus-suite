@@ -21,6 +21,11 @@ import ExtraServices from "./pages/modules/ExtraServices";
 import AdminAnalytics from "./pages/modules/AdminAnalytics";
 import IoTIntegration from "./pages/modules/IoTIntegration";
 import ProtectedRoute from "./components/ProtectedRoute";
+import AIPredictiveMaintenance from "./pages/modules/AIPredictiveMaintenance";
+import MentalHealthWellness from "./pages/modules/MentalHealthWellness";
+import SustainabilityDashboard from "./pages/modules/SustainabilityDashboard";
+import PeerMarketplace from "./pages/modules/PeerMarketplace";
+import EmergencyResponse from "./pages/modules/EmergencyResponse";
 
 const queryClient = new QueryClient();
 
@@ -68,6 +73,11 @@ const App = () => (
           <Route path="/services" element={<ExtraServices />} />
           <Route path="/analytics" element={<AdminAnalytics />} />
           <Route path="/iot" element={<IoTIntegration />} />
+          <Route path="/modules/AIPredictiveMaintenance" element={<AIPredictiveMaintenance />} />
+          <Route path="/modules/MentalHealthWellness" element={<MentalHealthWellness />} />
+          <Route path="/modules/SustainabilityDashboard" element={<SustainabilityDashboard />} />
+          <Route path="/modules/PeerMarketplace" element={<PeerMarketplace />} />
+          <Route path="/modules/EmergencyResponse" element={<EmergencyResponse />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */} 
           <Route path="*" element={<NotFound />} />
         </Routes>

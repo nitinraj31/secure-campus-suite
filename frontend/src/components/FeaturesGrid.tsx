@@ -2,7 +2,7 @@ import {
   Users, Home, CreditCard, UtensilsCrossed, 
   Wrench, MapPin, Shield, MessageSquare,
   Heart, Shirt, Wifi, Calendar,
-  BarChart3, Zap
+  BarChart3, Zap, Brain, Leaf, ShoppingCart, AlertTriangle
 } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
@@ -78,6 +78,36 @@ const features = [
     title: "IoT Integration",
     description: "Smart locks, energy management, and automated campus systems",
     gradient: "bg-gradient-security"
+  },
+  {
+    icon: Brain,
+    title: "AI-Powered Predictive Maintenance",
+    description: "Machine learning to predict equipment failures and schedule maintenance",
+    gradient: "bg-gradient-primary"
+  },
+  {
+    icon: Heart,
+    title: "Mental Health & Wellness Hub",
+    description: "Integrated counseling, mood tracking, and wellness programs",
+    gradient: "bg-gradient-security"
+  },
+  {
+    icon: Leaf,
+    title: "Sustainability Dashboard",
+    description: "Carbon footprint tracking, waste management, and eco-friendly initiatives",
+    gradient: "bg-gradient-primary"
+  },
+  {
+    icon: ShoppingCart,
+    title: "Peer-to-Peer Marketplace",
+    description: "Secure platform for students to buy/sell items within campus",
+    gradient: "bg-gradient-security"
+  },
+  {
+    icon: AlertTriangle,
+    title: "Emergency Response System",
+    description: "Automated evacuation alerts, emergency contacts, and safety protocols",
+    gradient: "bg-gradient-primary"
   }
 ];
 
